@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda para Gatos</title>
+    <script src="https://kit.fontawesome.com/00917dbadf.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./img/logoTienda.png">
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <p class="logo">GATITOS FELICES</p>
+    <i class="fa-solid fa-cat"></i>
+  </div>
+  <main>
+    <h2>Buscar:</h2>
+    <form id="formBuscar">
+      <input type="text" id="inputBuscar" value="">
+    </form>
+    <div id="productos">
+    </div>
+  </main>
+  <section class="section">
+    <h1>Carrito (<span id="cantidadProductos">0</span>)</h1>
+    <div id="carrito">
+    </div>
+    <h3>Total: $<span id="totalCarrito">0</span></h3>
+  </section>
+    <script src="./app.js"></script>
+</body>
+</html>
