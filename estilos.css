@@ -18,10 +18,10 @@ body{
 
 .header{
     height: 80px;
-    width: 80%;
+    width: 90%;
     background-color: palevioletred;
     border-radius: 3px;
-    margin: 30px 0px;
+    margin: 20px 0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -48,6 +48,31 @@ body{
     width: 70%;
     margin: 60px;
     padding: 10px;
+}
+
+#categorias{
+    padding-bottom: 20px;
+}
+
+#categorias li{
+    list-style: none;
+    display: inline-block;
+}
+
+#categorias li .btn{
+    display: inline-block;
+    color:#FF1493;
+}
+
+
+#categorias li .btn:hover,
+#categorias li btn.seleccionado{
+    background-color: aquamarine;
+    transition: backgorund-color 0.4s;
+}
+
+.btn{
+    background-color:pink;
 }
 
 .producto{

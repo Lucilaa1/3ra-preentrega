@@ -13,7 +13,6 @@ class BaseDeDatos {
         this.agregarRegistro(10, "Rascador Torre", 1500, "Otros", "rascador-Torre.jpg");
         this.agregarRegistro(11, "Juguete de Ratón", 500, "Juguetes", "juguete-Raton.jpg");
         this.agregarRegistro(12, "Juguete Interactivo", 400, "Juguetes", "juguete-Interactivo.jpg");
-        console.log(this.productos);
     }
 
     agregarRegistro(id, nombre, precio, categoria, imagen) {
@@ -31,6 +30,10 @@ class BaseDeDatos {
 
     registrosPorNombre(palabra) {
         return this.productos.filter((producto) => producto.nombre.toLowerCase().includes(palabra));
+    }
+
+    registrosPorCategoria(categoria) {
+        return this.productos.filter((producto) => producto.categoria == categoria);
     }
 }
  
@@ -117,6 +120,25 @@ const spanCantidadProductos = document.querySelector("#cantidadProductos");
 const spanTotalCarrito = document.querySelector("#totalCarrito");
 const formBuscar = document.querySelector("#formBuscar");
 const inputBuscar = document.querySelector("#inputBuscar");
+const botonesCategorias = document.querySelectorAll(".btnCategoria");
+
+botonesCategorias.forEach((boton) => {
+    boton.addEventListener("click", (event) => {
+        event.preventDefault();
+        const botonSeleccionado = document.querySelector(".seleccionado");
+        if (botonSeleccionado){
+            botonSeleccionado.classList.remove("seleccionado");    
+        }
+        boton.classList.add("seleccionado");
+        const productosPorCategoria = bd.registrosPorCategoria(boton.innerText);
+        cargarProductos(productosPorCategoria);
+    });
+});
+
+document.querySelector("#btnTodos").addEventListener("click", (event) => {
+    event.preventDefault();
+    cargarProductos(bd.traerRegistros());
+});
 
 cargarProductos(bd.traerRegistros());
 
