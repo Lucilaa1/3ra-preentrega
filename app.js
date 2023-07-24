@@ -134,11 +134,24 @@ botonesCategorias.forEach((boton) => {
         cargarProductos(productosPorCategoria);
     });
 });
+    const botonTodos = document.querySelector("#btnTodos");
 
-document.querySelector("#btnTodos").addEventListener("click", (event) => {
+    botonTodos.addEventListener("click", (event) => {
     event.preventDefault();
+    const botonSeleccionado = document.querySelector(".seleccionado");
+    if (botonSeleccionado){
+        botonSeleccionado.classList.remove("seleccionado");    
+    }
+    botonTodos.classList.add("seleccionado");
     cargarProductos(bd.traerRegistros());
 });
+
+function quitarClaseSeleccionado(){
+    const botonSeleccionado = document.querySelector(".seleccionado");
+    if (botonSeleccionado){
+        botonSeleccionado.classList.remove("seleccionado");    
+    } 
+}
 
 cargarProductos(bd.traerRegistros());
 
