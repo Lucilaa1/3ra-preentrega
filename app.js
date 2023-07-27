@@ -1,26 +1,11 @@
 class BaseDeDatos {
     constructor() {
         this.productos = [];
-        this.agregarRegistro(1, "Alimento Balanceado", 800, "Alimento", "Alimento-balanceado.jpeg");
-        this.agregarRegistro(2, "Alimento Balanceado Humedo", 500, "Alimento", "AlimentoBalanceado-Humedo.jpg");
-        this.agregarRegistro(3, "Leche de Gatos Bebés", 350, "Alimento", "leche-Gatitos.jpg");
-        this.agregarRegistro(4, "Comedero", 300, "Comederos y Bebederos", "comedero.jpg");
-        this.agregarRegistro(5, "Collar", 250, "Accesorios", "collar.jpg");
-        this.agregarRegistro(6, "Cama Moises", 2000, "Camas y Cuchas", "cama-Moises.png");
-        this.agregarRegistro(7, "Bandeja Sanitaria", 300, "Higiene", "bandeja-Sanitaria.jpg");
-        this.agregarRegistro(8, "Cepillo", 250, "Estética", "cepillo.jpg");
-        this.agregarRegistro(9, "Transportadora", 3000, "Viaje y Paseo", "transportadora.jpg");
-        this.agregarRegistro(10, "Rascador Torre", 1500, "Otros", "rascador-Torre.jpg");
-        this.agregarRegistro(11, "Juguete de Ratón", 500, "Juguetes", "juguete-Raton.jpg");
-        this.agregarRegistro(12, "Juguete Interactivo", 400, "Juguetes", "juguete-Interactivo.jpg");
     }
 
-    agregarRegistro(id, nombre, precio, categoria, imagen) {
-        const producto = new Producto(id, nombre, precio, categoria, imagen);
-        this.productos.push(producto);
-    }
-
-    traerRegistros() {
+    async traerRegistros() {
+        const response = await fetch('/json/productos.json');
+        this.productos = await response.json();
         return this.productos;
     }
 
@@ -125,25 +110,19 @@ const botonesCategorias = document.querySelectorAll(".btnCategoria");
 botonesCategorias.forEach((boton) => {
     boton.addEventListener("click", (event) => {
         event.preventDefault();
-        const botonSeleccionado = document.querySelector(".seleccionado");
-        if (botonSeleccionado){
-            botonSeleccionado.classList.remove("seleccionado");    
-        }
+        quitarClaseSeleccionado();
         boton.classList.add("seleccionado");
         const productosPorCategoria = bd.registrosPorCategoria(boton.innerText);
         cargarProductos(productosPorCategoria);
     });
 });
-    const botonTodos = document.querySelector("#btnTodos");
 
+    const botonTodos = document.querySelector("#btnTodos");
     botonTodos.addEventListener("click", (event) => {
     event.preventDefault();
-    const botonSeleccionado = document.querySelector(".seleccionado");
-    if (botonSeleccionado){
-        botonSeleccionado.classList.remove("seleccionado");    
-    }
+    quitarClaseSeleccionado();
     botonTodos.classList.add("seleccionado");
-    cargarProductos(bd.traerRegistros());
+    cargarProductos(bd.productos);
 });
 
 function quitarClaseSeleccionado(){
@@ -153,7 +132,7 @@ function quitarClaseSeleccionado(){
     } 
 }
 
-cargarProductos(bd.traerRegistros());
+bd.traerRegistros().then((productos) => cargarProductos(productos));
 
 function cargarProductos(productos) {
     divProductos.innerHTML = "";

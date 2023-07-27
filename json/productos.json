@@ -1,0 +1,88 @@
+[ 
+    {
+        "id": 1,
+        "nombre": "Alimento Balanceado",
+        "precio": 800,
+        "categoria": "Alimento",
+        "imagen":"Alimento-balanceado.jpeg"
+    },
+    {
+        "id": 2,
+        "nombre": "Alimento Balanceado Humedo",
+        "precio": 500,
+        "categoria": "Alimento",
+        "imagen": "AlimentoBalanceado-Humedo.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Leche de Gatos Bebés",
+        "precio": 350,
+        "categoria": "Alimento",
+        "imagen": "leche-Gatitos.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Comedero",
+        "precio": 300,
+        "categoria": "Comederos y Bebederos",
+        "imagen": "comedero.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Collar",
+        "precio": 250,
+        "categoria": "Accesorios",
+        "imagen": "collar.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Cama Moises",
+        "precio": 2000,
+        "categoria": "Camas y Cuchas",
+        "imagen": "cama-Moises.png"
+    },
+    {
+        "id": 7,
+        "nombre": "Bandeja Sanitaria",
+        "precio": 300,
+        "categoria": "Higiene",
+        "imagen": "bandeja-Sanitaria.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Cepillo",
+        "precio": 250,
+        "categoria": "Estética",
+        "imagen": "cepillo.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Transportadora",
+        "precio": 3000,
+        "categoria": "Viaje y Paseo",
+        "imagen": "transportadora.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "Rascador Torre",
+        "precio": 1500,
+        "categoria": "Otros",
+        "imagen": "rascador-Torre.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "Juguete de Ratón",
+        "precio": 500,
+        "categoria": "Juguetes",
+        "imagen": "juguete-Raton.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Juguete Interactivo",
+        "precio": 400,
+        "categoria": "Juguetes",
+        "imagen": "juguete-Interactivo.jpg"
+    }
+]
+
+        
